@@ -26,7 +26,7 @@ New
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Submit it!</button>
+        <button type="button" class="btn btn-primary" id='submit_diray_button'>Submit it!</button>
       </div>
     </div>
   </div>

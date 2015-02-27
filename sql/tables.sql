@@ -1,6 +1,8 @@
-create database myblog IF NOT EXISTS;
+create database IF NOT EXISTS `myblog`;
 
-create table myblog_title IF NOT EXISTS
+use myblog;
+
+create table IF NOT EXISTS `myblog_title`
 (
   blog_id BIGINT(20) unsigned NOT NULL auto_increment COMMENT 'ID',
   blog_title VARCHAR(64) NOT NULL COMMENT '标题',
@@ -15,7 +17,7 @@ create table myblog_title IF NOT EXISTS
   KEY `query_by_otime`(`op_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='博客基本信息';
 
-create table myblog_content IF NOT EXISTS
+create table IF NOT EXISTS `myblog_content`
 (
     blog_id BIGINT(20) unsigned NOT NULL,
     blog_content VARCHAR(12800) NOT NULL COMMENT '博客内容',

@@ -9,6 +9,9 @@
     <meta name="author" content="YaoKun">
 
     <title><?php echo SITE_TITLE; ?></title>
+    
+    <!-- my own js -->
+    <script src="js/my_own_js.js"></script>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
