@@ -39,7 +39,16 @@ New
 <br><br>
 
 <?php
-    $page->buildContent();
+
+    $intPageNum     = (int)$_GET['pn'];
+    $intPageCount   = (int)$_GET['rn'];
+    if (0 === $intPageCount) {
+        $intPageCount = 10;
+    }
+    if (0 === $intPageNum) {
+        $intPageNum = 1;
+    }
+    $page->buildContent($intPageNum, $intPageCount);
     $page->buildPageNumNav(45, 5, 1);
 ?>
     </div>

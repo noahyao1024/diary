@@ -4,21 +4,23 @@ require_once('module/db_driver.php');
 
 //view class
 class Page{
+    
+    const DB_NAME = 'myblog';
+    const TITLE_TABLE       = 'myblog_title';
+    const CONTENT_TABLE     = 'myblog_content';
+
     public function __construct() {
 
     }
 
-    public function getBlog($intPageNum, $intPageCount) {
-        //$objDb = new Db('localhost', '3306', 'root', '', 'diary_content');
-        //var_dump($objDb->getDb());
 
+    public function buildContent($intPageNum, $intPageCount) {
+        $objDb = new Db('localhost', '3306', 'root', '1111', self::DB_NAME);
         $intOffset = $intPageNum-1;
-        $strSql = "SELECT * FROM myblog_title ORDER BY create_time LIMIT $intOffset, $intPageCount";
-        //query
-    
-    }
+        $strSql = "select
+            blog_id, blog_title, blog_title, create_time,
+            from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id LIMIT $intOffset, $intPageCount";
 
-    public function buildContent() {
         $arrData = array();
         $arrData[0]['title']    = 'title1';
         $arrData[0]['content']  = 'testtest';
