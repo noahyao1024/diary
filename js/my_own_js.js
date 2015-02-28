@@ -12,7 +12,9 @@ var real_date   = myDate.toLocaleDateString();
                 content:    str_content,
                 title:      str_title
             },
-            function(data,status){
+            function(json_data,status){
+                data = eval(json_data);
+                console.log(data[0]);
                 console.log(data);
             }
         );
