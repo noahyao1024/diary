@@ -3,7 +3,7 @@ var myDate      = new Date();
 var real_date   = myDate.toLocaleDateString();
     $("#my_search_button").click(function(){ 
         query = $("#my_search_text").val();
-        window.location.href="index.php?query="+query;
+        self.location='index.php?query='+query+"&pn=1&rn=10";
     });
 
     $("#my_text_title").val(real_date);
