@@ -14,8 +14,11 @@ var real_date   = myDate.toLocaleDateString();
             },
             function(json_data,status){
                 data = eval(json_data);
-                console.log(data[0]);
-                console.log(data);
+                if (0 == data[0]) {
+                    alert("恭喜，添加成功!");
+                    $("#myModal").modal('hide');
+                    location.reload();
+                }
             }
         );
     }); 
