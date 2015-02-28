@@ -26,7 +26,12 @@ class Page{
         $strContent = '';
         for($i=0; $i<$intContentCount; $i++) {
             $strContent .= "<div class='panel panel-default'>";
-            $strContent .= "<div class='panel-heading'><h4>" . $arrData[$i]['blog_title'] . "</h4></div>";
+            $strContent .= "<div class='panel-heading'>";
+            $strContent .= "<h4>" . $arrData[$i]['blog_title'] . "</h4>";
+            $strContent .= "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>";
+            $strContent .= "<button type='button' class='btn btn-primary btn-xs'>" . $arrData[$i]['create_time'] . "</button>";
+            $strContent .= "";
+            $strContent .= "</div>";
             $strContent .= "<div class='panel-body'><h5>" . $arrData[$i]['blog_content'] . "</h5></div>";
             $strContent .= '</div>';
         }
@@ -39,7 +44,7 @@ class Page{
     }
 
     public function buildPageNumNav($intTotalCount, $intPerPage, $intPageNum) {
-        $intTotalPage = (int)(ceil(float($intTotalCount)/(float)$intPerPage));
+        $intTotalPage = (int)(ceil((float)$intTotalCount/(float)$intPerPage));
         $strHtml = "<nav><ul class='pagination'>";
         $strHtml .= "<li><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
         for ($i=1; $i<=$intTotalPage; $i++) {
