@@ -31,9 +31,15 @@ class Page{
             $strContent .= '</div>';
         }
         echo $strContent;
+
+        $strSql = "SELECT count(blog_id) as total_count from myblog_title";
+        $arrData = $objDb->query($strSql);
+        $intTotalCount = (int)$arrData[0]['total_count'];
+        return $intTotalCount;
     }
 
-    public function buildPageNumNav($intTotalCount, $intTotalPage, $intPageNum) {
+    public function buildPageNumNav($intTotalCount, $intPerPage, $intPageNum) {
+        $intTotalPage = (int)(ceil(float($intTotalCount)/(float)$intPerPage));
         $strHtml = "<nav><ul class='pagination'>";
         $strHtml .= "<li><a href='#' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>";
         for ($i=1; $i<=$intTotalPage; $i++) {
@@ -41,7 +47,7 @@ class Page{
             if ($i === $intPageNum) {
                 $strHtml .= " class='active'";
             }
-            $strHtml .= "><a href='#'>$i</a>";
+            $strHtml .= "><a href='index.php?pn=$i&rn=$intPerPage'>$i</a>";
         }
         $strHtml .= "<li><a href='#' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>";
 

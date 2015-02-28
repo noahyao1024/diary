@@ -47,8 +47,8 @@ New
     if (0 === $intPageNum) {
         $intPageNum = 1;
     }
-    $page->buildContent($intPageNum, $intPageCount);
-    $page->buildPageNumNav(45, 5, 1);
+    $intTotalCount = $page->buildContent($intPageNum, $intPageCount);
+    $page->buildPageNumNav($intTotalCount, $intPageCount, $intPageNum);
 ?>
     </div>
     <div class="clearfix visible-xs-block"></div>
