@@ -52,15 +52,17 @@ class Db {
         
         $arrRes = mysql_query($strSql, $this->_db);
         $arrRet = array();
-        while($row = $mysql_fetch_row($arrRes)) {
+        while($row = mysql_fetch_row($arrRes, MYSQL_ASSOC)) {
             $arrRet[] = $row;
         }
+
+        return $arrRet;
     }
 
     public function query($strSql) {
         $arrRes = mysql_query($strSql, $this->_db);
         $arrRet = array();
-        while($row = $mysql_fetch_row($arrRes)) {
+        while($row = mysql_fetch_row($arrRes, MYSQL_ASSOC)) {
             $arrRet[] = $row;
         }
         return $arrRet;
