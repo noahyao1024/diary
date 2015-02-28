@@ -18,7 +18,7 @@ class Page{
         $objDb = new Db('localhost', '3306', 'root', '1111', self::DB_NAME);
         $intOffset = $intPageNum-1;
         $strSql = "select
-            t.blog_id, t.blog_title, c.blog_content, t.create_time,
+            t.blog_id, t.blog_title, c.blog_content, t.create_time
             from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id LIMIT $intOffset, $intPageCount";
         $arrData = $objDb->query($strSql);
 

@@ -51,14 +51,19 @@ class Db {
         $strSql = "SELECT $strField FROM $strTable WHERE $strCond";
         
         $arrRes = mysql_query($strSql, $this->_db);
-        $arrResult = mysql_fetch_array($arrRes);
-        return $arrResult;
+        $arrRet = array();
+        while($row = $mysql_fetch_row($arrRes)) {
+            $arrRet[] = $row;
+        }
     }
 
     public function query($strSql) {
         $arrRes = mysql_query($strSql, $this->_db);
-        $arrResult = mysql_fetch_array($arrRes);
-        return $arrResult;
+        $arrRet = array();
+        while($row = $mysql_fetch_row($arrRes)) {
+            $arrRet[] = $row;
+        }
+        return $arrRet;
     }
 
 }
