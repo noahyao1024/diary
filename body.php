@@ -22,8 +22,7 @@ New
         <h4 class="modal-title" id="myModalLabel">
             <div class="form-group">
                 <input id="my_text_title"></input>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
+            </div>
         </h4>
 
       </div>
