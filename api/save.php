@@ -12,6 +12,13 @@
     $content    = $_POST['content'];
     //$uid = 
 
+    if (10 >= strlen($content)) {
+        $g_errmsg   = 'content is less than 10!';
+        $g_errno    = -3;
+        echo json_encode(array($g_errno, $g_errmsg));
+        return false;
+    }
+
     $objDb = new Db("localhost", 3306, 'root', '1111', DB_NAME);
     if (!$objDb->isConnected()) {
         $g_errmsg   = 'connect db fail!';

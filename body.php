@@ -29,8 +29,7 @@ New
 <textarea type="textarea" id='my_text_content' cols='45' rows='10' style='font-size:24px'></textarea>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id='submit_diray_button'>Submit it!</button>
+        <button type="button" class="btn btn-primary" id='submit_diray_button' data-dismiss"modal">Submit it!</button>
       </div>
     </div>
   </div>

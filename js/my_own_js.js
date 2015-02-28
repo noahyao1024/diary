@@ -13,7 +13,7 @@ var real_date   = myDate.toLocaleDateString();
                 title:      str_title
             },
             function(data,status){
-                alert(data+status);
+                console.log(data);
             }
         );
     }); 
