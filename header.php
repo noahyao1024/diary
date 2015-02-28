@@ -11,6 +11,7 @@
     <title><?php echo SITE_TITLE; ?></title>
     
     <!-- my own js -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/my_own_js.js"></script>
 
     <!-- 新 Bootstrap 核心 CSS 文件 -->
