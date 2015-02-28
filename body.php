@@ -19,7 +19,13 @@ New
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Diary Content</h4>
+        <h4 class="modal-title" id="myModalLabel">
+            <div class="form-group">
+                <input id="my_text_title"></input>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+        </h4>
+
       </div>
       <div class="modal-body">
 <textarea type="textarea" id='my_text_content' cols='45' rows='10' style='font-size:24px'></textarea>

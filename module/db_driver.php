@@ -10,6 +10,7 @@ class Db {
         }
 
         $this->_db = mysql_connect($strHost.":".$strPort, $strUser, $strPass);
+        mysql_select_db($strDb, $this->_db);
     }
 
 

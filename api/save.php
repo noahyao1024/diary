@@ -1,6 +1,7 @@
 <?php
-    define("TITLE_TABLE", '123');
-    define("CONTENT_TABLE", '123');
+    define("DB_NAME", 'myblog');
+    define("TITLE_TABLE", 'myblog_title');
+    define("CONTENT_TABLE", 'myblog_cotent');
 
     $g_errmsg   = "";
     $g_errno    = 0;
@@ -11,7 +12,7 @@
     $content    = $_POST['content'];
     //$uid = 
 
-    $objDb = new Db("12");
+    $objDb = new Db("localhost", 3306, 'root', '1111', DB_NAME);
     if (!$objDb->isConnected()) {
         $g_errmsg   = 'connect db fail!';
         $g_errno    = -1;
