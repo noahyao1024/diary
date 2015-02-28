@@ -20,21 +20,14 @@ class Page{
         $strSql = "select
             t.blog_id, t.blog_title, c.blog_content, t.create_time,
             from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id LIMIT $intOffset, $intPageCount";
-        var_dump($)
-
-        $arrData = array();
-        $arrData[0]['title']    = 'title1';
-        $arrData[0]['content']  = 'testtest';
-        $arrData[1]['title']    = 'title1';
-        $arrData[1]['content']  = 'testtest';
-
+        $arrData = $objDb->query($strSql);
 
         $intContentCount = count($arrData);
         $strContent = '';
         for($i=0; $i<$intContentCount; $i++) {
             $strContent .= "<div class='panel panel-default'>";
-            $strContent .= "<div class='panel-heading'><h4>" . $arrData[$i]['title'] . "</h4></div>";
-            $strContent .= "<div class='panel-body'><h5>" . $arrData[$i]['content'] . "</h5></div>";
+            $strContent .= "<div class='panel-heading'><h4>" . $arrData[$i]['blog_title'] . "</h4></div>";
+            $strContent .= "<div class='panel-body'><h5>" . $arrData[$i]['blog_content'] . "</h5></div>";
             $strContent .= '</div>';
         }
         echo $strContent;
