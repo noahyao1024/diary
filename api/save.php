@@ -20,8 +20,13 @@
         return false;
     }
     
+    $create_time = time();
+
     $arrTitleData = array(
-        'blog_title'     => $title,
+        'blog_title'    => $title,
+        'create_time'   => $create_time,
+        'op_time'       => $create_time,
+        'status'        => 1,
     );
     $blog_id = $objDb->insert($arrTitleData, TITLE_TABLE);
 
