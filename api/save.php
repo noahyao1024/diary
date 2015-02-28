@@ -1,7 +1,7 @@
 <?php
     define("DB_NAME", 'myblog');
     define("TITLE_TABLE", 'myblog_title');
-    define("CONTENT_TABLE", 'myblog_cotent');
+    define("CONTENT_TABLE", 'myblog_content');
 
     $g_errmsg   = "";
     $g_errno    = 0;
@@ -38,7 +38,8 @@
     }
 
     $arrContentData = array(
-        'blog_content' => $content,
+        'blog_id'       => $blog_id,
+        'blog_content'  => $content,
     );
 
     $content_id = $objDb->insert($arrContentData, CONTENT_TABLE);
