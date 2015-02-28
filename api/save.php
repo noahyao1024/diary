@@ -26,7 +26,7 @@
         'blog_title'    => $title,
         'create_time'   => $create_time,
         'op_time'       => $create_time,
-        'status'        => 1,
+        'blog_status'   => 1,
     );
     $blog_id = $objDb->insert($arrTitleData, TITLE_TABLE);
 
