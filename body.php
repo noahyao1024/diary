@@ -1,7 +1,6 @@
 <?php
     require_once('module/content_loader.php');
     $page = new Page();
-    $page->getBlog();
 ?>
 <div class="container-fluid">
 <div class='row'>

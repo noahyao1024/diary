@@ -50,7 +50,14 @@ class Db {
         $strCond = implode(' AND ', $arrTempCond);
         $strSql = "SELECT $strField FROM $strTable WHERE $strCond";
         
-        $arrResult = mysql_query($strSql, $this->_db);
+        $arrRes = mysql_query($strSql, $this->_db);
+        $arrResult = mysql_fetch_array($arrRes);
+        return $arrResult;
+    }
+
+    public function query($strSql) {
+        $arrRes = mysql_query($strSql, $this->_db);
+        $arrResult = mysql_fetch_array($arrRes);
         return $arrResult;
     }
 
