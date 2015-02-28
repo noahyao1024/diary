@@ -44,7 +44,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" id='my_search_text'>
                 </div>
-                <button type="submit" class="btn btn-default" id='my_search_button'><?php echo SEARCH_LABEL; ?></button>
+                <button type="button" class="btn btn-default" id='my_search_button'><?php echo SEARCH_LABEL; ?></button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><?php echo RIGHT_LINK1;?></a></li>
