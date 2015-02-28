@@ -19,7 +19,7 @@ class Page{
         $intOffset = $intPageNum-1;
         $strSql = "select
             t.blog_id, t.blog_title, c.blog_content, t.create_time
-            from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id LIMIT $intOffset, $intPageCount";
+            from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id DESC LIMIT $intOffset, $intPageCount";
         $arrData = $objDb->query($strSql);
 
         $intContentCount = count($arrData);
@@ -27,7 +27,7 @@ class Page{
         for($i=0; $i<$intContentCount; $i++) {
             $strContent .= "<div class='panel panel-default'>";
             $strContent .= "<div class='panel-heading'>";
-            $strTemp = "<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>";
+            $strTemp = "&nbsp&nbsp<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>";
             $strTemp .= "<button type='button' class='btn btn-primary btn-xs'>" . date('Y-m-d H:i:s',$arrData[$i]['create_time']) . "</button>";
             $strContent .= "<h4>" . $arrData[$i]['blog_title'] . $strTemp . "</h4>";
             $strContent .= "";
