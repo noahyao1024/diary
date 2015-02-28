@@ -21,11 +21,11 @@
     }
     
     $arrTitleData = array(
-        'title'     => $title,
+        'blog_title'     => $title,
     );
-    $title_id = $objDb->insert($arrTitleData, TITLE_TABLE);
+    $blog_id = $objDb->insert($arrTitleData, TITLE_TABLE);
 
-    if (0 >= $title_id) {
+    if (0 >= $blog_id) {
         $g_errno = -2;
         $g_errmsg = 'add title failed!';
         echo json_encode(array($g_errno, $g_errmsg));
@@ -33,7 +33,7 @@
     }
 
     $arrContentData = array(
-        'content' => $content,
+        'blog_content' => $content,
     );
 
     $content_id = $objDb->insert($arrContentData, CONTENT_TABLE);

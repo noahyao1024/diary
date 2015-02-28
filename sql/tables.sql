@@ -19,7 +19,8 @@ create table IF NOT EXISTS `myblog_title`
 
 create table IF NOT EXISTS `myblog_content`
 (
+    content_id BIGINT(20) unsigned NOT NULL auto_increment COMMENT 'ID',
     blog_id BIGINT(20) unsigned NOT NULL,
     blog_content VARCHAR(12800) NOT NULL COMMENT '博客内容',
-    KEY `id` (`blog_id`)
+    KEY `id` (`content_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='博客内容信息';
