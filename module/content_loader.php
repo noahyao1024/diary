@@ -17,6 +17,7 @@ class Page{
     public function buildContent($intPageNum, $intPageCount, $strQuery = "") {
         $objDb = new Db('localhost', '3306', 'root', '1111', self::DB_NAME);
         $intOffset = $intPageNum-1;
+        $intOffset = $intOffset*$intPageCount;
 
         if (0 >= strlen($strQuery)) {
             $strSql = "select
