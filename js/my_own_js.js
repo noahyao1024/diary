@@ -18,6 +18,8 @@ var real_date   = myDate.toLocaleDateString();
                     alert("恭喜，添加成功!");
                     $("#myModal").modal('hide');
                     location.reload();
+                } else {
+                    alert(data[1]);
                 }
             }
         );
