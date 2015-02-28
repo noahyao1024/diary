@@ -46,7 +46,9 @@ New
     if (0 === $intPageNum) {
         $intPageNum = 1;
     }
-    $intTotalCount = $page->buildContent($intPageNum, $intPageCount);
+
+    $strQuery = $_GET['query'];
+    $intTotalCount = $page->buildContent($intPageNum, $intPageCount, $strQuery);
     $page->buildPageNumNav($intTotalCount, $intPageCount, $intPageNum);
 ?>
     </div>

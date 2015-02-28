@@ -1,8 +1,13 @@
 $(function(){ 
 var myDate      = new Date();
 var real_date   = myDate.toLocaleDateString();
+    $("#my_search_button").click(function(){ 
+        query = $("#my_search_text").val();
+        window.location.href="index.php?query="+query;
+    });
 
     $("#my_text_title").val(real_date);
+
     $("#submit_diray_button").click(function(){ 
         str_title   = $("#my_text_title").val();
         str_content = $("#my_text_content").val();

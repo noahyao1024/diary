@@ -14,13 +14,24 @@ class Page{
     }
 
 
-    public function buildContent($intPageNum, $intPageCount) {
+    public function buildContent($intPageNum, $intPageCount, $strQuery = "") {
         $objDb = new Db('localhost', '3306', 'root', '1111', self::DB_NAME);
         $intOffset = $intPageNum-1;
-        $strSql = "select
-            t.blog_id, t.blog_title, c.blog_content, t.create_time
-            from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id DESC LIMIT $intOffset, $intPageCount";
-        $arrData = $objDb->query($strSql);
+
+        if (0 >= strlen($strQuery)) {
+            $strSql = "select
+                t.blog_id, t.blog_title, c.blog_content, t.create_time
+                from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id DESC LIMIT $intOffset, $intPageCount";
+            $arrData = $objDb->query($strSql);
+        } else {
+            $strSql = "SELECT 
+                t.blog_id, t.blog_title, c.blog_content, t.create_time
+                FROM
+                myblog_title as t, myblog_content as c
+                WHERE t.blog_id = c.blog_id AND t.blog_title LIKE '%$strQuery%'
+                ORDER BY t.blog_id DESC";
+            $arrData = $objDb->query($strSql);
+        }
 
         $intContentCount = count($arrData);
         $strContent = '';
@@ -37,9 +48,15 @@ class Page{
         }
         echo $strContent;
 
-        $strSql = "SELECT count(blog_id) as total_count from myblog_title";
-        $arrData = $objDb->query($strSql);
-        $intTotalCount = (int)$arrData[0]['total_count'];
+        $intTotalCount = 0;
+        if (0 >= strlen($strQuery)) {
+            $strSql = "SELECT count(blog_id) as total_count from myblog_title";
+            $arrData = $objDb->query($strSql);
+            $intTotalCount = (int)$arrData[0]['total_count'];
+        } else {
+            $intTotalCount = count($arrData);
+        }
+
         return $intTotalCount;
     }
 
