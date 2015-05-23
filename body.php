@@ -51,6 +51,7 @@ New
     $intTotalCount = $page->buildContent($intPageNum, $intPageCount, $strQuery);
     $page->buildPageNumNav($intTotalCount, $intPageCount, $intPageNum);
 ?>
+
     </div>
     <div class="clearfix visible-xs-block"></div>
     <div class="col-xs-4 col-sm-3">Friend link</div>

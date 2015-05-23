@@ -38,9 +38,10 @@ class Page{
         $strContent = '';
         for($i=0; $i<$intContentCount; $i++) {
             $strContent .= "<div class='panel panel-default'>";
-            $strContent .= "<div class='panel-heading'>";
-            $strTemp = "&nbsp&nbsp<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>";
+            $strContent .= "<div class='panel-heading' blog_id='{$arrData[$i]['blog_id']}'>";
+            $strTemp = "&nbsp&nbsp&nbsp<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>&nbsp";
             $strTemp .= "<button type='button' class='btn btn-primary btn-xs'>" . date('Y-m-d H:i:s',$arrData[$i]['create_time']) . "</button>";
+			$strTemp .= "&nbsp&nbsp<span class='glyphicon glyphicon-remove' aria-hidden='true' onclick='delete_diary({$arrData[$i]['blog_id']})'></span>";
             $strContent .= "<h4>" . $arrData[$i]['blog_title'] . $strTemp . "</h4>";
             $strContent .= "";
             $strContent .= "</div>";

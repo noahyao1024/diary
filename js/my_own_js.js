@@ -5,7 +5,7 @@ var real_date   = myDate.toLocaleDateString();
         query = $("#my_search_text").val();
         self.location='index.php?query='+query+"&pn=1&rn=10";
     });
-
+    
     $("#my_text_title").val(real_date);
 
     $("#submit_diray_button").click(function(){ 
@@ -30,3 +30,7 @@ var real_date   = myDate.toLocaleDateString();
         );
     }); 
 }); 
+
+function delete_diary(blog_id) {
+	alert(blog_id);
+}
