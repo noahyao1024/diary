@@ -8,7 +8,7 @@
     <div class="col-xs-12 col-sm-8">
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
 New
 </button>
 

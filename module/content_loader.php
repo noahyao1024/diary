@@ -13,7 +13,6 @@ class Page{
 
     }
 
-
     public function buildContent($intPageNum, $intPageCount, $strQuery = "") {
         $objDb = new Db('localhost', '3306', 'root', '1111', self::DB_NAME);
         $intOffset = $intPageNum-1;
@@ -22,7 +21,7 @@ class Page{
         if (0 >= strlen($strQuery)) {
             $strSql = "select
                 t.blog_id, t.blog_title, c.blog_content, t.create_time
-                from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id ORDER BY t.blog_id DESC LIMIT $intOffset, $intPageCount";
+                from myblog_title as t , myblog_content as c where t.blog_id = c.blog_id AND t.blog_status = 1 ORDER BY t.blog_id DESC LIMIT $intOffset, $intPageCount";
             $arrData = $objDb->query($strSql);
         } else {
             $strSql = "SELECT 
@@ -42,10 +41,10 @@ class Page{
             $strTemp = "&nbsp&nbsp&nbsp<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>&nbsp";
             $strTemp .= "<button type='button' class='btn btn-primary btn-xs'>" . date('Y-m-d H:i:s',$arrData[$i]['create_time']) . "</button>";
 			$strTemp .= "&nbsp&nbsp<span class='glyphicon glyphicon-remove' aria-hidden='true' onclick='delete_diary({$arrData[$i]['blog_id']})'></span>";
-            $strContent .= "<h4>" . $arrData[$i]['blog_title'] . $strTemp . "</h4>";
+            $strContent .= "<h4>" . htmlspecialchars($arrData[$i]['blog_title']) . $strTemp . "</h4>";
             $strContent .= "";
             $strContent .= "</div>";
-            $strContent .= "<div class='panel-body'><h5>" . $arrData[$i]['blog_content'] . "</h5></div>";
+            $strContent .= "<div class='panel-body'><h5>" . htmlspecialchars($arrData[$i]['blog_content']) . "</h5></div>";
             $strContent .= '</div>';
         }
         echo $strContent;
@@ -79,6 +78,5 @@ class Page{
         echo $strHtml;
     }
 }
-
 
 ?>

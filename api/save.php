@@ -8,8 +8,8 @@
 
     require_once("../module/db_driver.php");
     
-    $title      = $_POST['title'];
-    $content    = $_POST['content'];
+    $title      = htmlspecialchars($_POST['title']);
+    $content    = htmlspecialchars($_POST['content']);
     //$uid = 
 
     if (10 >= strlen($content)) {

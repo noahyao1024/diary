@@ -20,8 +20,12 @@
     
     $delete_time = time();
 
-	$strSql = sprintf("UPDATE %s SET status=4 WHERE blod_id = %d", TITLE_TABLE, $intBlogId);
-	$objDb->query($strSql);
+	$strSql = sprintf("UPDATE %s SET blog_status=4 WHERE blod_id = %d", TITLE_TABLE, $intBlogId);
+	$arrRet = $objDb->query($strSql);
+    if (false === $arrRet) {
+        $g_errmsg   = 'query failed!';
+        $g_errno    = -2;
+    }
     echo json_encode(array($g_errno, $g_errmsg));
     return true;
 
